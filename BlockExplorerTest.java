@@ -25,6 +25,16 @@ public class BlockExplorerTest {
         driver.get("https://blockstream.info/block/000000000000000000076c036ff5119e5a5a74df77abf64203473364509f7732 ");
     }
 
+@Test    public void validateTransactionHeading() {
+    WebElement headingElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[contains(text(),'Transactions')]")));
+        // Get heading text        
+    String actualHeading = headingElement.getText();        
+    String expectedHeading = "25 of 2875 Transactions";
+        // Validate heading text       
+    Assert.assertEquals(actualHeading, expectedHeading, "Transaction heading validation failed!");       
+    System.out.println(" Test Passed: Heading displayed as expected -> " + actualHeading);    
+}
+    
     @Test
     public void validateTransactions() {
         var transactions = explorerPage.getAllTransactions();
@@ -51,5 +61,6 @@ public class BlockExplorerTest {
         }
     }
 }
+
 
 

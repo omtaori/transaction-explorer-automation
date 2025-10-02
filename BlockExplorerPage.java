@@ -8,10 +8,10 @@ public class BlockExplorerPage {
     WebDriver driver;
 
     // Locators
-    private By transactionList = By.xpath("//div[contains(@class,'transaction-list-item')]");
-    private By transactionHash = By.xpath(".//div[contains(@class,'transaction-header')]//a");
-    private By inputs = By.xpath(".//div[contains(@class,'inputs')]//a");
-    private By outputs = By.xpath(".//div[contains(@class,'outputs')]//a");
+    private By transactionList = By.xpath("//div[contains(@class,'transaction-box')]");
+    private By transactionHash = By.xpath("//div[@class='header']//a");
+    private By inputs = By.xpath("//div[@class='ins-and-outs']//div[@class='vin-header']");
+    private By outputs = By.xpath("//div[@class='ins-and-outs']//div[@class='vout-header']");
 
     public BlockExplorerPage(WebDriver driver) {
         this.driver = driver;
@@ -48,4 +48,5 @@ public class BlockExplorerPage {
             return 0;
         }
     }
+
 }
